@@ -17,7 +17,7 @@ func SetupRouter(router *gin.Engine) {
 	router.GET("/:short_url", controllers.RedirectShortURL)
 
 	// Get the stats for a short URL
-	router.GET("/:short_url/stats", controllers.GetURLStats)
+	router.GET("api/:short_url/stats", controllers.GetURLStats)
 
 	router.Use(func(c *gin.Context) {
 		c.JSON(404, gin.H{"error": "URL not found"})
